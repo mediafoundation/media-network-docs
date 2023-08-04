@@ -1,0 +1,77 @@
+---
+title: What is a CDN?
+sidebar_label: Intro to CDNs
+sidebar_position: 1
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+A Content Delivery Network, or CDN, is **a global network of servers stationed at various data centers purposed to swiftly serve users with digital assets, including web pages, images, videos, and more**. The objective of a CDN is to diminish latency, enhance content accessible to users, and achieve this by placing the data in proximity to them.
+
+### How does a CDN work?
+
+A CDN improves website performance by caching files and serving them directly to users rather than sending each request to the origin server. **The CDN considers the user's geographic location and serves the files from the closest server, reducing latency and improving the user experience.**
+
+<ThemedImage
+  alt="CDN Content Delivery Network"
+  sources={{
+    light: useBaseUrl('/img/about-cdn-white.png'),
+    dark: useBaseUrl('/img/about-cdn-black.png'),
+  }}
+/>
+
+:::info
+***What is a CDN resource?*** A "CDN resource" typically refers to any piece of content that's being served via a CDN. This could be a static file like an image or a JavaScript file, a streaming media file, or even dynamic content that's generated on the fly for each user.
+:::
+
+As the digital landscape continues to evolve, it is increasingly important for companies to ensure that their online presence is fast, reliable, and accessible to users from all over the world. A CDN is a solution that can help businesses achieve these goals.
+
+<ThemedImage
+  alt="CDNs: The Key to Fast and Secure Websites"
+  sources={{
+    light: useBaseUrl('/img/about-cdn-benefits-white.png'),
+    dark: useBaseUrl('/img/about-cdn-benefits-black.png'),
+  }}
+/>
+
+### Example of a CDN Implementation
+
+Let's say you have a website that serves many images. Each time a user requests an image without a CDN, the request is sent to your origin server, slowing down the page load time and leading to a poor user experience.
+With a CDN, the images are cached on servers in multiple data centers worldwide. When a user requests an image, the CDN checks the user's location and serves the image from the closest server. 
+
+In the code, you can configure your website to use a CDN by changing the URLs of your resources to the CDN's URL. Here's an example of how you can use a CDN with HTML to improve the performance of your website:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CDN Example</title>
+</head>
+<body>
+    <img src="https://cdn.example.com/images/image.jpg" alt="Example Image">
+    <script src="https://cdn.example.com/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.example.com/css/styles.css">
+</body>
+</html>
+
+```
+
+In this example, we use a CDN for our images, JavaScript files, and CSS stylesheets. The URLs for these resources have been changed to the CDN's URL, "https://cdn.example.com/." Doing this will serve the resources from the closest server to the user, reducing latency and improving the website's overall performance.
+
+*Please note that the above example is just a sample; you need to replace the cdn.example.com with the specific CDN service you are using.*
+
+### CDN Industry: A Look Back at its Development and Current Threats
+
+As the world's internet usage continues to soar, companies in the CDN industry have stepped up their game to keep pace. They've added cutting-edge features and expanded their network capacity to deliver an unparalleled user experience. But with any technology comes potential drawbacks. 
+
+Today's centralized CDN systems are exposed to attack vectors that could compromise the entire system, including the risk of a single point of failure, centralized control, and the possibility of deplatforming. Plus, with data breaches on the rise, there's always the risk of sensitive information leaks. And let's remember the potential for unilateral pricing and payment issues. With all these potential pitfalls, weighing the pros and cons before committing to a CDN provider is crucial.
+
+<ThemedImage
+  alt="CDN Industry: A Look Back at its Development and Current Threats"
+  sources={{
+    light: useBaseUrl('/img/about-cdn-problems-white.png'),
+    dark: useBaseUrl('/img/about-cdn-problems-black.png'),
+  }}
+/>

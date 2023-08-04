@@ -1,0 +1,58 @@
+---
+title: What is Media PeerPool?
+sidebar_label: About
+sidebar_position: 1
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+### Introducing Media PeerPool: A cost-saving solution for media platforms
+
+Media PeerPool **reduces bandwidth costs for media platforms** by utilizing **peer-to-peer** browser functionality. It operates as a peer-assisted solution, where all individuals downloading a specific file or viewing the same stream share content with each other via WebRTC, **based on location and latency**. This reduces the load on the network, significantly improving overall performance, and **reducing costs by up to 99%**.
+
+<ThemedImage
+  alt="Media Network Protocol Flow"
+  sources={{
+    light: useBaseUrl('/img/peerpool-flow-blackandwhite.png'),
+    dark: useBaseUrl('/img/peerpool-flow-black.png'),
+  }}
+/>
+
+### How it works
+
+Media PeerPool shifts the CDN load back to the clients, following edge computing principles. By utilizing current web standards such as Media Source Extensions, audio and video tags, and WebRTC, the library can natively solve the challenges of peer-to-peer video streaming in the browser.
+
+graph TD;
+    A(CDN) --> B(Edge Server);
+    B --> C(End-User);
+    A --> D(Media PeerPool);
+    D --> E(Peers);
+    E --> C;
+
+<ThemedImage
+  alt="Media Network Protocol Flow"
+  sources={{
+    light: useBaseUrl('/img/peerpool-prefetch-white.png'),
+    dark: useBaseUrl('/img/peerpool-prefetch-black.png'),
+  }}
+/>
+
+| Feature | Media PeerPool | Traditional CDN |
+| --- | --- | --- |
+| Cost Savings | Up to 99% | N/A |
+| Network Performance | Improved | Depends on location of edge servers |
+| Integration | CDN agnostic | Requires specific CDN |
+| Scalability | Can handle millions of users | Limited by number of edge servers |
+
+### Components
+
+Trackers are servers responsible for keeping track of the location and availability of files on the network. They monitor which peers have a specific file and track their location and latency. Libraries then use this information to locate available peers and establish connections.
+
+Libraries are client-side code that runs on the user's device. They communicate with the trackers to locate available peers and establish connections. They also handle the transfer of data between peers using WebRTC. By shifting the load from the CDN to the clients, libraries help reduce the load on the network and improve overall performance.
+
+Peer-to-peer systems are connections established between users' devices. They allow for direct data transfer between peers without needing a centralized server. This reduces the load on the network and improves overall performance.
+
+### CDN Agnostic
+
+Media PeerPool is designed to work seamlessly with any CDN. It can be easily integrated as a standalone component and has the potential to reduce CDN costs by up to 99% significantly. The system leverages ISP location and geolocation awareness to create WebRTC clusters. Peers from the same provider's network and in close proximity are assigned to the same cluster. This enables the system to fulfill every request from peers within its cluster effectively. In the case of live streaming, if a peer is unable to receive data from the P2P network in time, it will request it from the CDN as a fallback option. Additionally, the system uses the STUN protocol to bypass NAT connectivity issues and establish a direct connection between peers over WebRTC. This is beneficial, especially for links behind multiple proxies or heavily restricted firewalls. With Media PeerPool, content providers can save costs while ensuring their audiences’ highest possible performance and user experience.
