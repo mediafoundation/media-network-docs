@@ -1,8 +1,7 @@
 module.exports = {
   title: "Media Cloud Documentation",
-  tagline:
-    "Media Cloud is a permissionless marketplace for web services, built using the Media Network protocol. It offers a peer-to-peer alternative to traditional cloud giants like AWS, Azure, and Google Cloud.",
-  url: "https://www.mediacloud.ws/docs",
+  tagline: "Media Cloud is a permissionless marketplace for web services, built using the Media Network protocol. It offers a peer-to-peer alternative to traditional cloud giants like AWS, Azure, and Google Cloud.",
+  url: "http://localhost",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "mediafoundation",
@@ -106,26 +105,5 @@ module.exports = {
         },
       },
     ],
-  ],
-/*   plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          // /docs/oldDoc -> /docs/newDoc
-          {
-            to: '/media-network/about',
-            from: '/about-intro',
-          },
-          {
-            to: '/governance',
-            from: [
-              '/media-governance-dao',
-              '/media-governance-troubleshooting'
-            ]
-          }
-        ],
-      },
-    ],
-  ], */
+  ]
 };
