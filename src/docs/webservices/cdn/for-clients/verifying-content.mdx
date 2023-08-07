@@ -17,8 +17,8 @@ Subresource Integrity (SRI) is a security feature that enables browsers to verif
 
 File hashing is taking a file and running it through an algorithm that reduces it to a short string representation, known as a hash or checksum. The process is either repeatable or reversible, so much so that if you give someone else a file along with the hash, they’d be able to run the same algorithm to check that the two match. If the file changes or the hash changes, then there’s no longer a match, and you know something is wrong and should distrust the file. When using SRI, your webpage holds the hash and the server (CDN or anywhere) holds the file. The browser downloads the file, then quickly computes it to ensure that it matches the hash in the integrity attribute. If it matches, the file is used; if not, it is blocked. This is key for any DeFi front-end to avoid allowing users to load hijacked websites and the subsequent loss of customers’ funds, such as Badger DAO’s front-end hack.
 
-:::info
-“BadgerDAO, a DeFi protocol for earning yield with tokenized Bitcoin on Ethereum, has fallen victim to an attack. The hacker reportedly added a malicious script to the protocol’s frontend website, prompting users to approve a smart contract transaction giving the script unlimited permission to drain funds from their wallets” https://cryptobriefing.com/120m-lost-badgerdao-defi-hack/.
+:::info About Badger DAO’s front-end hack
+“BadgerDAO, a DeFi protocol for earning yield with tokenized Bitcoin on Ethereum, has fallen victim to an attack. The hacker reportedly added a malicious script to the protocol’s frontend website, prompting users to approve a smart contract transaction giving the script unlimited permission to drain funds from their wallets” [Read more](https://cryptobriefing.com/120m-lost-badgerdao-defi-hack/).
 :::
 
 ### Using Subresource Integrity
