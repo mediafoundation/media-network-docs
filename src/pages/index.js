@@ -12,6 +12,16 @@ const features = [
     imageUrl: "/overview",
     description: <>Learn about the core concepts of Media Cloud.</>
   },
+  {
+    title: <>For Clients</>,
+    imageUrl: "/for-clients/overview",
+    description: <>Learn how to hire p2p web services from Media Cloud.</>
+  },
+  {
+    title: <>For Providers</>,
+    imageUrl: "/for-providers/overview",
+    description: <>Technical Reference for web services Providers.</>
+  },
 ];
 
 function Feature({ imageUrl, title, description }) {
