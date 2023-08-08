@@ -4,55 +4,64 @@ sidebar_label: About
 sidebar_position: 1
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
+<!-- 
+POSIBLES DEFINICIONES PARA MEDIA PEERPOOL:
+Más simple:
+Media PeerPool is a peer-assisted solution leveraging WebRTC for media platforms, designed to optimize bandwidth usage and reduce CDN costs. Utilizing edge computing principles, it decentralizes content delivery, enhancing performance based on location and latency, while seamlessly integrating with any CDN.
 
-### Introducing Media PeerPool: A cost-saving solution for media platforms
+Más técnica:
+Media PeerPool is a WebRTC-based, peer-to-peer content delivery mechanism for media platforms. It decentralizes data transfer, utilizing Media Source Extensions and edge computing principles. By redistributing CDN load to clients and leveraging ISP geolocation for optimal peer clustering, it enhances network efficiency and offers significant CDN cost reductions.
+-->
 
-Media PeerPool **reduces bandwidth costs for media platforms** by utilizing **peer-to-peer** browser functionality. It operates as a peer-assisted solution, where all individuals downloading a specific file or viewing the same stream share content with each other via WebRTC, **based on location and latency**. This reduces the load on the network, significantly improving overall performance, and **reducing costs by up to 99%**.
+### Media PeerPool Demo
 
-<ThemedImage
-  alt="Media Network Protocol Flow"
-  sources={{
-    light: useBaseUrl('/img/peerpool-flow-blackandwhite.png'),
-    dark: useBaseUrl('/img/peerpool-flow-black.png'),
-  }}
-/>
+Click <a href="https://mediaserver.express/v/UTu3r2Bm" target="_blank">here</a> to open in a new window.  Try opening multiple tabs with the same stream, navigate through them, and observe how the P2P network gradually takes over the data transfer. After a few minutes, you will notice a significant reduction in the CDN usage as the Media PeerPool technology offloads network traffic to the P2P network. This leads to a better user experience by improving streaming quality and reducing latency.
 
-### How it works
+<iframe frameborder="0" src="https://mediaserver.express/v/UTu3r2Bm" width="800" height="700"></iframe>
 
-Media PeerPool shifts the CDN load back to the clients, following edge computing principles. By utilizing current web standards such as Media Source Extensions, audio and video tags, and WebRTC, the library can natively solve the challenges of peer-to-peer video streaming in the browser.
 
-graph TD;
-    A(CDN) --> B(Edge Server);
-    B --> C(End-User);
-    A --> D(Media PeerPool);
-    D --> E(Peers);
-    E --> C;
+### Integration
 
-<ThemedImage
-  alt="Media Network Protocol Flow"
-  sources={{
-    light: useBaseUrl('/img/peerpool-prefetch-white.png'),
-    dark: useBaseUrl('/img/peerpool-prefetch-black.png'),
-  }}
-/>
 
-| Feature | Media PeerPool | Traditional CDN |
-| --- | --- | --- |
-| Cost Savings | Up to 99% | N/A |
-| Network Performance | Improved | Depends on location of edge servers |
-| Integration | CDN agnostic | Requires specific CDN |
-| Scalability | Can handle millions of users | Limited by number of edge servers |
+Since PeerPool only requires Javascript, integrating it into your website is seamless for end-users and only requires a minor modification to your site's HTML page.
 
-### Components
+The client-side integration will depend on the player you are using and typically involves adding just a single line of code to your page. To achieve this, include the following scripts in the head section of your player's page:
+```html
+<script src="https://media.network/demo/peerpool.js"></script>
+```
 
-Trackers are servers responsible for keeping track of the location and availability of files on the network. They monitor which peers have a specific file and track their location and latency. Libraries then use this information to locate available peers and establish connections.
+### Complete Example (Clappr)
 
-Libraries are client-side code that runs on the user's device. They communicate with the trackers to locate available peers and establish connections. They also handle the transfer of data between peers using WebRTC. By shifting the load from the CDN to the clients, libraries help reduce the load on the network and improve overall performance.
+```html
 
-Peer-to-peer systems are connections established between users' devices. They allow for direct data transfer between peers without needing a centralized server. This reduces the load on the network and improves overall performance.
+<style>body{margin:0}#video{width:100vw;height:100vh;}</style>
+<div id="video"></div>
+<script src="https://media.network/demo/peerpool.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
+<script>
+  if (p2pml.hlsjs.Engine.isSupported()) {
+    var engine = new p2pml.hlsjs.Engine();
+    var loader = engine.createLoaderClass();
+  } else {
+    var loader = XHRLoader;
+  }
+  var engine = new p2pml.hlsjs.Engine();
+  var player = new Clappr.Player({
+    parentId: "#video",
+    source: "https://client123.cdnprovider.com/live/STREAM_NAME/index.m3u8",
+    width:"100%",
+    height:"100%",
+    playback: {
+      hlsjsConfig: {
+        liveSyncDurationCount: 7,
+        loader: loader
+      }
+    }
+  });
+  if (p2pml.hlsjs.Engine.isSupported()) p2pml.hlsjs.initClapprPlayer(player);
+  player.play(true);
+</script>
 
-### CDN Agnostic
+```
 
-Media PeerPool is designed to work seamlessly with any CDN. It can be easily integrated as a standalone component and has the potential to reduce CDN costs by up to 99% significantly. The system leverages ISP location and geolocation awareness to create WebRTC clusters. Peers from the same provider's network and in close proximity are assigned to the same cluster. This enables the system to fulfill every request from peers within its cluster effectively. In the case of live streaming, if a peer is unable to receive data from the P2P network in time, it will request it from the CDN as a fallback option. Additionally, the system uses the STUN protocol to bypass NAT connectivity issues and establish a direct connection between peers over WebRTC. This is beneficial, especially for links behind multiple proxies or heavily restricted firewalls. With Media PeerPool, content providers can save costs while ensuring their audiences’ highest possible performance and user experience.
+#### More Examples Coming Soon
