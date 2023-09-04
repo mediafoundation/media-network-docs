@@ -1,6 +1,6 @@
-# Media Cloud Documentation
+# Media Network Documentation
 
-This repository contains documentation for Media Cloud clients and providers. It includes a set of markdown files that serve as the source for a static site generated using Docusaurus. 
+This repository contains documentation for Media Network clients and providers. It includes a set of markdown files that serve as the source for a static site generated using Docusaurus. 
 
 ## Installation and Running
 

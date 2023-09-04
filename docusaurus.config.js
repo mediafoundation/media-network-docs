@@ -1,11 +1,11 @@
 module.exports = {
-  title: "Media Cloud Documentation",
-  tagline: "Media Cloud is a permissionless marketplace for web services, built using the Media Network protocol. It offers a peer-to-peer alternative to traditional cloud giants like AWS, Azure, and Google Cloud.",
+  title: "Media Network Documentation",
+  tagline: "Media Network is a permissionless marketplace for web services, built using the Media Protocol. It offers a peer-to-peer alternative to traditional cloud giants like AWS, Azure, and Google Cloud.",
   url: "http://localhost",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "mediafoundation",
-  projectName: "media-cloud-docs",
+  projectName: "media-network-docs",
   themeConfig: {
     image: "https://media.network/images/mediasocial.jpg",
     colorMode: {
@@ -13,9 +13,9 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Media Cloud Docs",
+      title: "Media Network Docs",
       logo: {
-        alt: "Media Cloud Logo",
+        alt: "Media Network Logo",
         src: "/img/medianetwork.svg",
         srcDark: "/img/medianetworkwhite.svg",
       },
@@ -88,7 +88,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Media Foundation`,
     },
-    editUrl: "https://github.com/mediafoundation/media-cloud-docs/edit/main/",
+    editUrl: "https://github.com/mediafoundation/media-network-docs/edit/main/",
   },
   presets: [
     [

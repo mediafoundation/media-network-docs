@@ -8,14 +8,14 @@ import styles from "./styles.module.css";
 
 const features = [
   {
-    title: <>What is Media Cloud</>,
+    title: <>What is Media Network</>,
     imageUrl: "/overview",
-    description: <>Learn about the core concepts of Media Cloud.</>
+    description: <>Learn about the core concepts of Media Network.</>
   },
   {
     title: <>For Clients</>,
     imageUrl: "/for-clients/overview",
-    description: <>Learn how to hire p2p web services from Media Cloud.</>
+    description: <>Learn how to hire p2p web services from Media Network.</>
   },
   {
     title: <>For Providers</>,
