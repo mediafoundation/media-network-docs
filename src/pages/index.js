@@ -9,17 +9,17 @@ import styles from "./styles.module.css";
 const features = [
   {
     title: <>What is Media Network</>,
-    imageUrl: "/overview",
+    imageUrl: "/introduction",
     description: <>Learn about the core concepts of Media Network.</>
   },
   {
     title: <>For Clients</>,
-    imageUrl: "/for-clients/overview",
+    imageUrl: "/for-clients/clients-overview",
     description: <>Learn how to hire p2p web services from Media Network.</>
   },
   {
     title: <>For Providers</>,
-    imageUrl: "/for-providers/overview",
+    imageUrl: "/for-providers/providers-overview",
     description: <>Technical Reference for web services Providers.</>
   },
 ];

@@ -1,0 +1,146 @@
+---
+title: CDN Resources Guide
+sidebar_label: CDN Resources
+sidebar_position: 2
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+### What are CDNs Resources?
+
+In Media Network, a CDN Resource refers to an on-chain record created by the user. It is a JSON encrypted object that includes details about an origin server, such as its URL, path, and port. Additionally, it contains user-defined metadata like labels, and settings such as cache expiration time and custom headers.
+
+Transitioning from the creation to the utilization phase, these CDN Resources serve as the basis for negotiations with service providers. The encrypted data, comprising a series of IP addresses or origin domains and their corresponding configurations, is securely recorded on the blockchain within the Media Protocol's Resources contract. This ensures that the information is tamper-proof and persistently accessible. Managing these resources is streamlined through the Media Network interface, offering users a seamless experience in handling their content delivery needs.
+
+:::info Learn more
+Visit our Resources Contract Technical Reference [click here](https://www.mediaprotocol.net/smart-contracts/reference/core/resources).
+:::
+
+### Prerequisites
+
+- We must be connected to the Media Network with a wallet.
+- Have enough native coins in your account to cover the transaction fees of the chosen network.
+
+### Creating resources
+
+#### Example Case 
+
+Suppose you've deployed your blog to Vercel at this example URL: https://next-blog-starter.vercel.app/ and are ready to decentralize its hosting.
+
+In this case, you'd enter https://next-blog-starter.vercel.app/ in the Origin URL field, then click the Add Resource button, which will require you to sign a transaction on your selected blockchain.
+
+Upon confirmation of the transaction, the new resource is ready and now you can select offers from the CDN Marketplace to attach the resource to one or more CDN providers.
+
+After assigning your resource to a provider, new endpoint(s) for your resource are generated on their end. You can use these new URL(s) from your provider(s) to access your blog.
+
+You can also access all your assets at any path of your origin from the new endpoint, which will look similar to this:
+```https://<1_2_3>.<Provider.com>/path/to/file.jpg.```
+
+#### Step by Step Guide
+
+#### Navigate to Client Dashboard
+
+**Path**: /client/cdn-resources
+
+<ThemedImage
+  alt="Client Dashboard"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/client-dashboard-light.png'),
+    dark: useBaseUrl('/img/resources-guide/client-dashboard-dark.png'),
+  }}
+/>
+
+On this section you can register CDN Resources on your selected blockchain for further utilization within the Media Network. This technology is designed for developers seeking to enhance their website or application scalability and security. CDN systems replicate and cache files stored on your origin servers at multiple provider locations and data centers worldwide, thereby reducing both latency for users and server load.
+
+#### Completing the form
+
+**Resource Label**: A vanity name for identifying the resource.
+
+**Origin URL**: IP address or domain. (May include PATH)
+
+**Protocol**: http or https.
+
+**Custom Port**: The origin custom port. Ports 80 for http and 443 for https are set by default.
+
+<ThemedImage
+  alt="Completing the form"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/resources-form-light.png'),
+    dark: useBaseUrl('/img/resources-guide/resources-form-dark.png'),
+  }}
+/>
+
+#### Submitting the form
+
+Once all the data is entered, we can click on "Add Resource," which will open the connected wallet and will require the public encryption key and sufficient native coins to pay the transaction.
+
+<ThemedImage
+  alt="Submitting the form"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/metamask-light.png'),
+    dark: useBaseUrl('/img/resources-guide/metamask-dark.png'),
+  }}
+/>
+
+### Resources List
+
+In the same location (/client/cdn-resources), on the left side on Desktop and in a general view on Mobile, all the resources we create will be displayed.
+
+<ThemedImage
+  alt="First Resource"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/first-resource-light.png'),
+    dark: useBaseUrl('/img/resources-guide/first-resource-dark.png'),
+  }}
+/>
+
+If you click on the "Resource Label", it will expand to show the "Resource Origin" and the current deals (What we will see later) for that specific resource. Additionally, by clicking on the icon with three dots, you can access all available settings.
+
+### Resource Settings
+
+- **Overview**: Configure the basic settings for your CDN resource, such as its label, origin and path, protocol, and custom port if necessary.
+
+<ThemedImage
+  alt="Overview Tab"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/overview-tab-light.png'),
+    dark: useBaseUrl('/img/resources-guide/overview-tab-dark.png'),
+  }}
+/>
+
+- **Advanced**: Modify your CDN resource's advanced settings, including custom CNAME, expiration time, headers or delete resource.
+
+<ThemedImage
+  alt="Advanced Tab"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/advanced-tab-light.png'),
+    dark: useBaseUrl('/img/resources-guide/advanced-tab-dark.png'),
+  }}
+/>
+
+- **Cache**: Initiate the removal of cached content from your providers.
+
+<ThemedImage
+  alt="Cache Tab"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/cache-tab-light.png'),
+    dark: useBaseUrl('/img/resources-guide/cache-tab-dark.png'),
+  }}
+/>
+
+- **Providers**: Monitor the current status of deals.
+
+<ThemedImage
+  alt="Providers Tab"
+  sources={{
+    light: useBaseUrl('/img/resources-guide/providers-tab-light.png'),
+    dark: useBaseUrl('/img/resources-guide/providers-tab-dark.png'),
+  }}
+/>
+
+This image represents a capture of a resource that has been assigned deals.
+
+If your resource is new, it will not have any deals assigned to it yet, as we still need to explore the market to find a suitable offering for our origin. You can see this process on the [CDN Marketplace](/for-clients/CDN/cdn-marketplace).
+
+This section provided a brief overview of the interface capabilities for managing resources. 
