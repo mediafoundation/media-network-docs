@@ -4,10 +4,53 @@ sidebar_label: CDN Marketplace
 sidebar_position: 3
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
 ### Market Offer Discovery
 
+<ThemedImage
+  alt="Client Dashboard"
+  sources={{
+    light: useBaseUrl('/img/marketplace-guide/marketplace-light.png'),
+    dark: useBaseUrl('/img/marketplace-guide/marketplace-dark.png'),
+  }}
+/>
+
 Here you'll find a list of offers originating from registered providers on your active blockchain. Please note that anyone can register as a provider, and thus, the accuracy of the descriptions for the offers presented here can't be guaranteed. The claimed features should ideally correspond with the actual providers but are not stringently monitored or enforced.
+
+### About Offers
+
+A CDN Resource offer is a proposal or agreement provided by a CDN service provider to a client or user. It typically outlines the terms under which the CDN will deliver content to end-users on behalf of the client. Here are some key aspects generally included in a CDN Resource offer:
+
+- **Node Locations:** The physical locations of the servers that make up the CDN's network. The distribution of these nodes globally can affect the speed and availability of content to end-users. Closer proximity to users typically results in faster content delivery.
+
+- **Bandwith:** The amount of data that can be transmitted in a fixed amount of time. In a CDN context, it often refers to the volume of data the CDN can deliver for the client, usually measured in gigabytes (GB) or terabytes (TB).
+
+- **Speed:** This refers to how quickly content is delivered from the CDN to the end-users. It can be influenced by several factors, including the CDN's technology, the user's location relative to the nearest CDN node, and the original server's performance.
+
+- **Price:** The cost of using the CDN service, which could be structured as pay-as-you-go, where the client pays for the actual data transferred, or as a fixed monthly or annual fee based on the resources allocated.
+
+- **Contract Duration:** The length of time the service agreement is in effect. Contract terms can vary, often ranging from 1 hour to months agreements.
+
+- **Full Term Billing:** This means the client agrees to pay for the entire contract duration upfront or as a lump sum, regardless of whether they use all of the services or not. This can sometimes result in a discount for the customer.
+
+- **Instant Delivery:** This indicates that the CDN is delivered as soon as it is requested.
+
+- **Custom CNAME:** A custom Canonical Name record (CNAME) allows the client to use their own domain name to point to the CDN resources rather than using a CDN-provided domain. This helps maintain brand consistency and can improve trust with end-users.
+
+- **Auto SSL:** Automatic SSL refers to the CDN's ability to provide automatic provisioning, management, and renewal of SSL certificates for secure connections. This simplifies the process of encrypting content delivery for the client.
 
 ### How to take an offer?
 
 In order you take an offer, you must first set up a [CDN Resource](/for-clients/CDN/cdn-resources). Once you have created a resource, you can select any available offers from the marketplace and continue to shop with your cart by assigning the created resource to it.
+
+Remember that we created a resource called Example Case earlier.
+
+<ThemedImage
+  alt="Client Dashboard"
+  sources={{
+    light: useBaseUrl('/img/marketplace-guide/cart-light.png'),
+    dark: useBaseUrl('/img/marketplace-guide/cart-dark.png'),
+  }}
+/>
