@@ -1,6 +1,6 @@
 {
-  "name": "media-docs",
-  "version": "0.0.0",
+  "name": "media-network-docs",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
