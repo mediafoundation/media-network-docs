@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -9,17 +8,17 @@ import styles from "./styles.module.css";
 const features = [
   {
     title: <>What is Media Network</>,
-    imageUrl: "/introduction",
+    imageUrl: "/",
     description: <>Learn about the core concepts of Media Network.</>
   },
   {
     title: <>For Clients</>,
-    imageUrl: "/for-clients/clients-overview",
+    imageUrl: "/for-clients/overview",
     description: <>Learn how to hire p2p web services from Media Network.</>
   },
   {
     title: <>For Providers</>,
-    imageUrl: "/for-providers/providers-overview",
+    imageUrl: "/for-providers/overview",
     description: <>Technical Reference for web services Providers.</>
   },
 ];
@@ -43,34 +42,14 @@ function Feature({ imageUrl, title, description }) {
   );
 }
 
-function Home() {
+function Features() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout
-      title="Media Network"
-      description="Documentation"
-    >
-      {/* <header className={clsx("hero hero--primary", styles.heroBanner)}> */}
-      {/* <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p> */}
-      {/* <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
-              Get Started
-            </Link>
-          </div> */}
-      {/* </div> */}
-      {/* </header> */}
-      <main>
+      <>
         {features && features.length > 0 && (
           <section className={styles.features}>
-            <div className="container padding-bottom--lg">
+            <div className="padding-bottom--lg">
               <div className="row cards__container">
                 {features.map((props, idx) => (
                   <Feature key={idx} {...props} />
@@ -79,9 +58,8 @@ function Home() {
             </div>
           </section>
         )}
-      </main>
-    </Layout>
+      </>
   );
 }
 
-export default Home;
+export default Features;

@@ -100,6 +100,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
         },
+        blog: false, // Optional: disable the blog plugin
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
