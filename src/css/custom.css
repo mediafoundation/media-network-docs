@@ -230,3 +230,11 @@ html[data-theme='dark'] .gradient-box-child {
   font-size: 2rem;
   font-weight: 500;
 }
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
