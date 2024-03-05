@@ -8,10 +8,10 @@ To get started with this project, you'll need to have Node.js and Yarn installed
 
 1. Clone the repository:
 
-    - Using HTTPS: `git clone https://github.com/mediafoundation/media-cloud-docs.git`
-    - Using GitHub CLI: `gh repo clone mediafoundation/media-cloud-docs`
+    - Using HTTPS: `git clone https://github.com/mediafoundation/media-network-docs.git`
+    - Using GitHub CLI: `gh repo clone mediafoundation/media-network-docs`
 
-2. Navigate into the repository directory: `cd media-cloud-docs`
+2. Navigate into the repository directory: `cd media-network-docs`
 
 3. Install the dependencies: `yarn install`
 
