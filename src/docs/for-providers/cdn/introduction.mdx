@@ -4,6 +4,9 @@ sidebar_label: CDN Offers
 sidebar_position: 1
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
 ### What are CDNs?
 
 A Content Delivery Network, or CDN, is a global network of servers stationed at various data centers purposed to swiftly serve users with digital assets, including web pages, images, videos, and more. The objective of a CDN is to diminish latency, enhance content accessible to users, and achieve this by placing the data in proximity to them.
@@ -12,7 +15,165 @@ A Content Delivery Network, or CDN, is a global network of servers stationed at 
 If you want a more detailed view of how CDNs work, visit our learn section or [click here](/learn/web-services/cdn-about).
 :::
 
-### What are CDNs Offers?
+### How to register as a CDN Provider
+
+:::info Requisites
+1. Metamask Wallet.
+2. Enough balance to stake.
+:::
+
+1. Go to **/provider/register** or from the menu **For Providers > Register as a Provider**.
+
+2. Complete the registration form: 
+
+    <ThemedImage
+        alt="Provider Register Form"
+        sources={{
+            light: useBaseUrl('/img/providers-guide/provider-register-form-light.png'),
+            dark: useBaseUrl('/img/providers-guide/provider-register-form-dark.png'),
+        }}
+    />
+
+   * **Vanity Name:** Vanity name by which customers can see and identify you in the market.
+   * **Email Address:** This field allows the user to provide their email address, which can be used for communication purposes. 
+   * **Bio Description:** Provide a short description or slogan of your user or company to use as additional professional information.
+   * **Picture URL:** Valid URL for a picture. Supported formats: png, jpg, jpeg, gif, webp.
+   * **Website URL:** Website for professional purposes attached to the marketplace.
+   * **Encryption Public Key:** Allows the user to provide their public encryption key, which will be used for secure communication or data encryption.
+
+    <ThemedImage
+        alt="Provider Staking Parameters"
+        sources={{
+            light: useBaseUrl('/img/providers-guide/provider-staking-light.png'),
+            dark: useBaseUrl('/img/providers-guide/provider-staking-dark.png'),
+        }}
+    />
+
+   * **Staking parameters:** To be a Media Network provider you need to participate in a blockchain network by locking cryptocurrency tokens as collateral to support network operations.
+
+3. Once the form is completed, you must submit it and confirm the transaction in your wallet. You will be redirected to your provider dashboard. This is how it looks:
+
+    <ThemedImage
+        alt="Provider Register Form"
+        sources={{
+            light: useBaseUrl('/img/providers-guide/provider-dashboard-light.png'),
+            dark: useBaseUrl('/img/providers-guide/provider-dashboard-dark.png'),
+        }}
+    />
+
+### CDNs Offers
+
+The CDN offerings that a user can purchase are services and plans provided by CDN providers that encompass a variety of features and capabilities designed to improve the delivery and performance of digital content.
+
+You can create as many offers as you want to provide CDN services. Each offer can be set up to hold a determined amount of deals. Deals are billed by seconds of usage.
+
 
 ### How to create CDNs offers on the market?
 
+<ThemedImage
+    alt="Marketplace Offers"
+    sources={{
+        light: useBaseUrl('/img/providers-guide/marketplace-offers-light.png'),
+        dark: useBaseUrl('/img/providers-guide/marketplace-offers-dark.png'),
+    }}
+/>
+
+You must be registered as a provider.
+
+1. Go to **/provider/offers/new** or from the menu **Provider > Add Offer**.
+2. Complete the offer form:
+
+    <ThemedImage
+        alt="Provider Add Offer Form"
+        sources={{
+            light: useBaseUrl('/img/providers-guide/provider-add-offer-light.png'),
+            dark: useBaseUrl('/img/providers-guide/provider-add-offer-dark.png'),
+        }}
+    />
+
+    * **Offer label:** For internal reference only. Clients won't see the offer label through the app.
+    * **Minimum Deal Duration:** This refers to the minimum duration that will be billed. If 'Full Period Billing' is enabled, this duration is also used as the billing period.
+    * **Maximum Deals:** The maximum number of deals allowed for this offer. Once this limit is reached, no additional deals can be accepted.
+    * **Price Per Month:** Fees charged: Marketplace 30%
+    * **Full Period Billing:** If this option is enabled, once the minimum deal duration has elapsed, the next billing will cover an entire period equal to the deal's minimum duration.
+    * **Auto Accept New Deals:** When this option is enabled, billing will start immediately after a deal is created and in exchange, clients will expect instant provisioning.
+    * **Custom CNAMEs:** Allow clients to use their own CNAMEs with your CDN.
+    * **Automatic SSL Certificates:** Provide free SSL certificate auto-negotiation for client CNAMEs.
+    * **API Endpoint:** This is the endpoint where your clients will retrieve and post data. The protocol (https / http) is required.
+    * **Node Locations:** Specify the location of your edge nodes.
+    * **Bandwidth Limits:** 
+      * **Max Burst Speed** 
+      * **Bandwidth Amount:** Use 0 for unlimited.
+      * **Unit** 
+      * **Period**
+3. Once the form is completed, you must submit it and confirm the transaction in your wallet. You will be redirected to your offers section. This is how it looks:
+
+    <ThemedImage
+        alt="Offers Section"
+        sources={{
+            light: useBaseUrl('/img/providers-guide/offers-section-light.png'),
+            dark: useBaseUrl('/img/providers-guide/offers-section-dark.png'),
+        }}
+    />
+
+### About Auto Accept New Deals
+
+When this option is enabled, billing will start immediately after a deal is created and in exchange, clients will expect instant provisioning.
+
+If the option is disabled, you as a provider must manually accept the treatment requested by the client.
+
+In the interface, on both the supplier and customer side, the deal will appear differentiated with an orange icon that means "Awaiting approval."
+
+<ThemedImage
+    alt="Offers Pending"
+    sources={{
+        light: useBaseUrl('/img/providers-guide/offers-pending-light.png'),
+        dark: useBaseUrl('/img/providers-guide/offers-pending-dark.png'),
+    }}
+/>
+
+Keep in mind that if you delay accepting the deal, the customer may reject it and give you a bad reputation.
+
+### How to delete offers and cancel deals?
+
+:::info Important
+To delete an offer, it is important to keep in mind that it must not have any active deals assigned to it.
+:::
+
+1. Go to **/provider/offers** or click "Offers" from the sidebar menu located in **Provider > Dashboard**. 
+2. Select the offer or deal you want to delete in the table and press the X button.
+3. Confirm transaction in your wallet. After you cancel any deal, pending balances will distribute accordingly.
+
+### How to collect the balance?
+
+* **Collect All Balances:** Use this method to collect the payments of all your ongoing and finished deals.
+    * Go to **/provider/payments** or click "Collect Payments" from the sidebar menu located in **Provider > Dashboard**. 
+    * Click in the "Collect All" button.
+    * Confirm transaction in your wallet.
+
+<ThemedImage
+    alt="Collect All Balances"
+    sources={{
+        light: useBaseUrl('/img/providers-guide/collect-balances-light.png'),
+        dark: useBaseUrl('/img/providers-guide/collect-balances-dark.png'),
+    }}
+/>
+
+<ThemedImage
+    alt="Collect Balance Modal"
+    sources={{
+        light: useBaseUrl('/img/providers-guide/collect-balances-modal-light.png'),
+        dark: useBaseUrl('/img/providers-guide/collect-balances-modal-dark.png'),
+    }}
+/>
+
+1. **Collect one by one:**
+    * Go to **/provider/offers** or click "Offers" from the sidebar menu located in **Provider > Dashboard**. 
+    * Select the deal you want to collect in the table and press the COIN button.
+    * Confirm transaction in your wallet.
+
+All the due balance from your clients will be deducted. You will receive MEDIA in your wallet.
+
+### Statistics
+
+In Progress...
