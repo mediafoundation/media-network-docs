@@ -14,12 +14,12 @@ const features = [
   {
     title: <>For Clients</>,
     imageUrl: "/for-clients/overview",
-    description: <>Learn how to hire p2p web services from Media Network.</>
+    description: <>Learn how to acquire P2P Cloud Services from Media Network.</>
   },
   {
     title: <>For Providers</>,
     imageUrl: "/for-providers/overview",
-    description: <>Technical Reference for web services Providers.</>
+    description: <>Technical Reference for Web Services Providers.</>
   },
 ];
 

@@ -1,0 +1,48 @@
+---
+title: Media Edge Installation
+sidebar_label: Installation
+sidebar_position: 2
+---
+
+This guide will walk you through the process of installing Media Edge on your servers. Media Edge is a software package that allows you to participate in Media Network as a provider. It enables you to monetize your resources by offering content delivery services to clients who need to distribute their web content efficiently and effectively.
+
+## Prerequisites
+**Being registered** as a provider on Media Network is a prerequisite for installing Media Edge. If you haven't registered yet, please visit the [registration page](https://www.media.network/register) to sign up.
+You also need at least **two servers with Debian 10 installed**. One server will be used as the origin server, and the other as the edge server. You can have as many origin and edge servers as you want.
+
+
+## Step by Step Guide
+
+Ensure these are installed on your local computer and target server(s):
+
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems)
+- [rsync](https://rsync.samba.org/)
+- [Debian 10 x64](https://www.debian.org/releases/buster/debian-installer/)
+
+### 🛠️ Installation
+
+1. Clone the repository and its submodules:
+   ```sh
+   git clone https://github.com/mediafoundation/media-edge.git
+   cd media-edge
+   git submodule init
+   git submodule update
+   ```
+2. Navigate to the `ansible` folder:
+   ```sh
+   cd ansible
+   ```
+3. Prepare the hosts file:
+   ```sh
+   cp hosts.example hosts
+   # Edit hosts with your server's IP addresses
+   ```
+4. Set up your configuration:
+   ```sh
+   cp user_config.yml.example user_config.yml
+   # Edit user_config.yml with your wallet and other settings
+   ```
+5. Deploy Media Edge:
+   ```sh
+   ansible-playbook deploy.yml -i hosts
+   ```
