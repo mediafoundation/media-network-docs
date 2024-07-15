@@ -4,12 +4,15 @@ sidebar_label: Installation
 sidebar_position: 2
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 This guide will walk you through the process of installing Media Edge on your servers. Media Edge is a software package that allows you to participate in Media Network as a provider. It enables you to monetize your resources by offering content delivery services to clients who need to distribute their web content efficiently and effectively.
 
 ## Prerequisites
+
 **Being registered** as a provider on Media Network is a prerequisite for installing Media Edge. If you haven't registered yet, please visit the [registration page](https://www.media.network/register) to sign up.
 You also need at least **two servers with Debian 10 installed**. One server will be used as the origin server, and the other as the edge server. You can have as many origin and edge servers as you want.
-
 
 ## Step by Step Guide
 
@@ -18,6 +21,8 @@ Ensure these are installed on your local computer and target server(s):
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems)
 - [rsync](https://rsync.samba.org/)
 - [Debian 10 x64](https://www.debian.org/releases/buster/debian-installer/)
+
+🖥️ For Windows users: it is recommended to install **Debian** for the **Windows Subsystem for Linux (WSL)** from the **Microsoft Store**. This will allow for greater efficiency in installing Ansible, rsync, and typing commands.
 
 ### 🛠️ Installation
 
@@ -33,16 +38,185 @@ Ensure these are installed on your local computer and target server(s):
    cd ansible
    ```
 3. Prepare the hosts file:
-   ```sh
-   cp hosts.example hosts
-   # Edit hosts with your server's IP addresses
+
+   Rename **`hosts.example`** to **`hosts`**.
+
+   <Tabs groupId="operating-systems">
+     <TabItem value="win" label="Windows">
+
+      ```sh
+      copy hosts.example hosts
+      ```
+
+     </TabItem>
+     <TabItem value="linux" label="Linux">
+
+      ```sh
+      cp hosts.example hosts
+      ```
+
+     </TabItem>
+     <TabItem value="mac" label="macOS">
+
+      ```sh
+      cp hosts.example hosts
+      ```
+
+     </TabItem>
+   </Tabs>
+
+   The **`hosts`** file is used in Ansible for defining groups of hosts and their connection details. Below is an example of how you can structure your **`hosts`** file to manage multiple servers, categorized as **`origin`** and **`edge`**.
+
+   ```ini
+   [origin]
+   origin1 ansible_host=XXX.XX.XXX.XX ansible_port=22 ansible_user=root
+
+   [edge]
+   edge1 ansible_host=XXX.XXX.XXX.XXX ansible_port=22 ansible_user=root
    ```
-4. Set up your configuration:
-   ```sh
-   cp user_config.yml.example user_config.yml
-   # Edit user_config.yml with your wallet and other settings
-   ```
+
+   Replace X with your server's IP addresses.
+
+   ### Explanation
+
+   1. **Groups ([origin], [edge])**
+         - Groups are defined within square brackets ([]). Each group can contain one or more servers with similar roles or configurations.
+
+   2. **Host Definitions**
+         - Each host entry starts with a unique name (**origin1**, **edge1**) that identifies the server.
+         - **ansible_host:** specifies the IP address or hostname of the server.
+         - **ansible_port:** specifies the SSH port number used for Ansible connections (default is 22).
+         - **ansible_user:** specifies the username used for SSH authentication (often root for administrative tasks).
+
+   2. **Usage Tips**
+         - **Adding more hosts:** you can add additional hosts to either **[origin]** or **[edge]** groups by following the same format.
+         - **Dynamic Inventory:** for larger setups, consider using dynamic inventory scripts to automatically populate the **hosts** file based on cloud providers, databases, or other external sources.
+
+
+ 4. Set up your configuration:
+
+   Rename **`user_config.yml.example`** to **`user_config.yml`** and follow the steps below to correctly specify the necessary parameters.
+
+   <Tabs groupId="operating-systems">
+     <TabItem value="win" label="Windows">
+
+      ```sh
+      copy user_config.yml.example user_config.yml
+      ```
+
+     </TabItem>
+     <TabItem value="linux" label="Linux">
+
+      ```sh
+      cp user_config.yml.example user_config.yml
+      ```
+
+     </TabItem>
+     <TabItem value="mac" label="macOS">
+
+      ```sh
+      cp user_config.yml.example user_config.yml
+      ```
+
+     </TabItem>
+   </Tabs>
+
+   ### Detailed Steps
+   
+      1. **Wallet Address**
+         - Specify your wallet address within double quotes to avoid it being interpreted as a hex number.
+         - Example:
+         ```yaml
+         wallet_address: "0x00f420693607b8079432296d2E34eb8a9dDC6e7B"
+         ```
+
+      2. **Private Key**
+         - Provide the private key for decrypting resources. Ensure it's 64 characters long.
+         - **Caution:** Use a private key from a wallet without funds to prevent hacking and fund loss.
+         - Example:
+         ```yaml
+         private_key: 545cdcd19de92805371d9644fa7d5a154e51204e41c8cbc8ff3bc9fdd5083efd
+         ```
+
+      3. **Networks**
+         - Specify the networks where you are providing services, including the network ID and URL. You can find the Network ID in the DAPP in the navigation menu under "More" -> "Contract Addresses" or directly access it at /info.
+         - If URL is undefined, the default RPC from the media-sdk will be used.
+         - Example:
+         ```yaml
+         networks:
+         - id: 11155111
+            URL: undefined
+         ```
+
+      4. **Marketplace ID**
+         - Select the marketplace ID where you are providing services.
+         - Example:
+         ```yaml
+         marketplace_id: 1
+         ```
+
+      5. **Origin IP Address and CNAME**
+         - Specify the IP address and CNAME for your origin.
+         - Example:
+         ```yaml
+         origin_ip: 162.33.178.37
+         cname: cname.yourdomain.com
+         ```
+
+      6. **DNS Configuration**
+         - Configure DNS for caddy to create TXT records to pass ACME challenges.
+         - Specify the DNS provider and environment variables for authentication.
+         - Example:
+         ```yaml
+         dns_config: 
+            lego: cloudflare 
+            env_vars: 
+            - CLOUDFLARE_EMAIL=example@yourmail.com
+            - CLOUDFLARE_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            domains: 
+            - yourdomain.com
+         ```
+
+      7. **PostgreSQL Configuration**
+         - Provide the PostgreSQL database connection details including host, port, user, password, and database name.
+         - Example:
+         ```yaml
+         db_host: localhost
+         db_port: 5432
+         db_user: origin
+         db_password: xxxxxxxxxx
+         db_name: origin
+         ```
+
+      8. **Testing Server Configuration**
+         - If testing is enabled, provision the server with Ganache.
+         - Example:
+         ```yaml
+         testing: false
+         ```
+
+      9. **Ganache Configuration**
+         - Configure Ganache if testing is true. Set up the host, port, mnemonic, network ID, and chain ID.
+         - Example:
+         ```yaml
+         persist_ganache_db: true
+         ganache_host: 0.0.0.0
+         ganache_port: 8545
+         ganache_mnemonic: "blue stone rain outer bomb like lounge spoil stuff prison shoe own"
+         ganache_network_id: 418
+         ganache_chain_id: 418
+         ```
+
 5. Deploy Media Edge:
+
+   Execute the playbook using the **`ansible-playbook`** command, specifying your **`deploy.yml`** and **`hosts`** file:
+
    ```sh
    ansible-playbook deploy.yml -i hosts
    ```
+
+   This command initiates Ansible to connect to the specified hosts and execute the tasks defined in **`deploy.yml`**.
+
+By following these steps, you can effectively deploy and manage your media edge infrastructure using Ansible, ensuring consistency and reliability across your distributed network.
+
+Feel free to adjust the instructions based on your specific deployment requirements and infrastructure setup.
