@@ -69,7 +69,7 @@ Ensure these are installed on your local computer and target server(s):
 
    ```ini
    [origin]
-   origin1 ansible_host=XXX.XX.XXX.XX ansible_port=22 ansible_user=root
+   origin1 ansible_host=XXX.XXX.XXX.XXX ansible_port=22 ansible_user=root
 
    [edge]
    edge1 ansible_host=XXX.XXX.XXX.XXX ansible_port=22 ansible_user=root
@@ -127,7 +127,7 @@ Ensure these are installed on your local computer and target server(s):
          - Specify your wallet address within double quotes to avoid it being interpreted as a hex number.
          - Example:
          ```yaml
-         wallet_address: "0x00f420693607b8079432296d2E34eb8a9dDC6e7B"
+         wallet_address: "0x0000000000000000000000000000000000000000"
          ```
 
       2. **Private Key**
@@ -135,7 +135,7 @@ Ensure these are installed on your local computer and target server(s):
          - **Caution:** Use a private key from a wallet without funds to prevent hacking and fund loss.
          - Example:
          ```yaml
-         private_key: 545cdcd19de92805371d9644fa7d5a154e51204e41c8cbc8ff3bc9fdd5083efd
+         private_key: 0000000000000000000000000000000000000000000000000000000000000000
          ```
 
       3. **Networks**
@@ -159,7 +159,7 @@ Ensure these are installed on your local computer and target server(s):
          - Specify the IP address and CNAME for your origin.
          - Example:
          ```yaml
-         origin_ip: 162.33.178.37
+         origin_ip: XXX.XXX.XXX.XXX
          cname: cname.yourdomain.com
          ```
 
@@ -184,27 +184,8 @@ Ensure these are installed on your local computer and target server(s):
          db_host: localhost
          db_port: 5432
          db_user: origin
-         db_password: WFNFYYPPSZtOA2n
+         db_password: changeme1234
          db_name: origin
-         ```
-
-      8. **Testing Server Configuration**
-         - If testing is enabled, provision the server with Ganache.
-         - Example:
-         ```yaml
-         testing: false
-         ```
-
-      9. **Ganache Configuration**
-         - Configure Ganache if testing is true. Set up the host, port, mnemonic, network ID, and chain ID.
-         - Example:
-         ```yaml
-         persist_ganache_db: true
-         ganache_host: 0.0.0.0
-         ganache_port: 8545
-         ganache_mnemonic: "blue stone rain outer bomb like lounge spoil stuff prison shoe own"
-         ganache_network_id: 418
-         ganache_chain_id: 418
          ```
 
 5. Deploy Media Edge:
