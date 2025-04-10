@@ -20,11 +20,11 @@ module.exports = {
         srcDark: "/img/medianetworkwhite.svg",
       },
       items: [
-        {
-          href: "https://t.me/Media_FDN",
-          label: "Chat",
-          position: "right",
-        },
+        // {
+        //   href: "https://t.me/Media_FDN",
+        //   label: "Chat",
+        //   position: "right",
+        // },
         {
           href: "https://github.com/mediafoundation",
           label: "GitHub",
